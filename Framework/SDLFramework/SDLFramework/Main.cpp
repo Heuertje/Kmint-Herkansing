@@ -5,12 +5,13 @@
 #include "SDL_timer.h"
 #include <time.h>
 #include "Graph.h"
+#include "Cow.h"
 //#include "vld.h"
 
 Graph*firstGraph;
 std::vector<Node> graphNodes;
 std::vector<Edge> temporaryEdgesVector;
-SDL_Texture*catTexture;
+
 
 int main(int args[])
 {
@@ -29,7 +30,7 @@ int main(int args[])
 	graphNodes = firstGraph->getNodes();
 	
 
-	catTexture = application->LoadTexture("cow-1.png");
+	Cow* cow = new Cow();
 
 	//while (true){}
 	while (application->IsRunning())
@@ -76,8 +77,8 @@ int main(int args[])
 					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
 				}
 			}
-		
-			application->DrawTexture(catTexture, it->xPosition, it->yPosition, 50, 50);
+			
+			application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
 		}
 		
 
@@ -95,5 +96,6 @@ int main(int args[])
 	}
 	delete application;
 	delete firstGraph;
+	delete cow;
 	return EXIT_SUCCESS;
 }
