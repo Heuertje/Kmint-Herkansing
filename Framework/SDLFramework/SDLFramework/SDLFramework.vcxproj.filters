@@ -108,5 +108,8 @@
     <Image Include="..\Resources\rabbit-3.png">
       <Filter>Resoures</Filter>
     </Image>
+    <Image Include="..\Resources\node.png">
+      <Filter>Resoures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

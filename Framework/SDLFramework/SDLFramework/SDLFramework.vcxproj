@@ -118,6 +118,7 @@
     <Image Include="..\Resources\games-6.png" />
     <Image Include="..\Resources\gun-metal.png" />
     <Image Include="..\Resources\lemmling_Cartoon_cow.png" />
+    <Image Include="..\Resources\node.png" />
     <Image Include="..\Resources\pill.png" />
     <Image Include="..\Resources\rabbit-2.png" />
     <Image Include="..\Resources\rabbit-3.png" />

@@ -12,7 +12,6 @@ Graph*firstGraph;
 std::vector<Node> graphNodes;
 std::vector<Edge> temporaryEdgesVector;
 
-
 int main(int args[])
 {
 	//auto window = Window::CreateSDLWindow();
@@ -28,7 +27,6 @@ int main(int args[])
 	
 	firstGraph = new Graph();
 	graphNodes = firstGraph->getNodes();
-	
 
 	Cow* cow = new Cow();
 
@@ -62,11 +60,13 @@ int main(int args[])
 		application->SetColor(Color(0, 0, 0, 255));
 		application->DrawText("Welcome to Andrew, Jeroen & Bas KMINT Application", 400 ,20 );
 	
-		
+		//Start drawing
 		for (std::vector<Node>::iterator it = graphNodes.begin(); it != graphNodes.end(); ++it)
 		{
+			//Draw all nodes
 			application->DrawRect((int)it->xPosition, (int)it->yPosition, (int)it->nodeWidth, (int)it->nodeHeight, it->isFilled);
 			
+			//If node has edges
 			if (it->getEdges().size() !=0)
 			{
 				temporaryEdgesVector = it->getEdges();
@@ -77,21 +77,15 @@ int main(int args[])
 					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
 				}
 			}
-			
 			application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
 		}
 		
-
-		
-
 		// For the background
 		application->SetColor(Color(255, 255, 255, 255));
 
 		application->UpdateGameObjects();
 		application->RenderGameObjects();
 		application->EndTick();
-		
-
 		
 	}
 	delete application;
