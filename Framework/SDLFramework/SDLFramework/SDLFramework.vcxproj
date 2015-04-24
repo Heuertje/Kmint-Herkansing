@@ -41,6 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2_image-2.0.0\include;C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2_ttf-2.0.12\include;C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2_image-2.0.0\include;C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2_ttf-2.0.12\include;C:\Users\Sagar\Documents\GitHub\Kmint-Herkansing\Framework\SDL2-2.0.3\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -61,6 +63,20 @@
       <AdditionalLibraryDirectories>$(ProjectDir)../../SDL2-2.0.3/lib/x86;$(ProjectDir)../../SDL2_ttf-2.0.12/lib/x86;$(ProjectDir)../../SDL2_image-2.0.0/lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2test.lib;SDL2_ttf.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)SDL2.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)SDL2_image.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)SDL2_ttf.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)SDL2_mixer.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)libfreetype-6.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)zlib1.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)smpeg2.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)libwebp-4.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)libtiff-5.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)libpng16-16.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)libjpeg-9.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)Resources" "$(TargetDir)Resources" /e /y /i /r</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
