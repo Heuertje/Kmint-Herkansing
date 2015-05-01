@@ -65,6 +65,12 @@ std::vector<Edge> Node::getEdges()
 }
 
 
-void Node::Draw(){}
+void Node::Draw(){
+	//#TestDraw
+	mApplication->SetColor(Color(100, 0, 200, 255));
+	mApplication->DrawLine(0,0, 500,500);
+	//#endTestDraw
+
+}
 void Node::Update(float deltaTime){}
 void Node::OnCollision(IGameObject * collidedObject){}
