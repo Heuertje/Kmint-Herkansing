@@ -77,7 +77,7 @@ int main(int args[])
 					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
 				}
 			}
-			application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
+			application->DrawTexture(cow->GetTexture(), it->xPosition, it->yPosition, 50, 50);
 		}
 		
 		// For the background

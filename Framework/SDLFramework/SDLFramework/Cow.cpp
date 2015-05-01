@@ -2,17 +2,27 @@
 
 Cow::Cow()
 {
-	init();
+	mTexture = mApplication->LoadTexture("cow-1.png");
 }
 
-void Cow::init()
+void Cow::Draw()
 {
-	application = FWApplication::GetInstance();
-	cowTexture = application->LoadTexture("cow-1.png");
+	
 }
+
+void Cow::Update(float deltaTime)
+{
+
+}
+
+void Cow::OnCollision(IGameObject * collidedObject)
+{
+
+}
+
 
 Cow::~Cow()
 {
-	application = nullptr;
-	application->RemoveTexture(cowTexture);
+	mApplication = nullptr;
+	mApplication->RemoveTexture(mTexture);
 }
