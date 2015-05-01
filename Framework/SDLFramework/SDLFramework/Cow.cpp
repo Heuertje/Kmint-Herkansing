@@ -14,5 +14,5 @@ void Cow::init()
 Cow::~Cow()
 {
 	application = nullptr;
-	SDL_DestroyTexture(cowTexture);
+	application->RemoveTexture(cowTexture);
 }

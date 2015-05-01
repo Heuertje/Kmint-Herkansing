@@ -3,7 +3,6 @@
 #include "FWApplication.h"
 #include <SDL_events.h>
 #include "SDL_timer.h"
-#include <SDL.h>
 #include <time.h>
 #include "Graph.h"
 class Cow
