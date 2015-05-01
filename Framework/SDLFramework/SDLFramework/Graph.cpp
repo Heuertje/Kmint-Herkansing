@@ -3,16 +3,16 @@
 #include "Edge.h"
 #
 
-Graph::Graph()
+Graph::Graph(FWApplication* application)
 { 
 	// initialize nodes
-	node1 = new Node(100, 80, 10, 10, true);
-	node2 = new Node(220, 110, 10, 10, true);
-	node3 = new Node(180, 230, 10, 10, true);
-	node4 = new Node(300, 160, 10, 10, true);
-	node5 = new Node(430, 530, 10, 10, true);
-	node6 = new Node(520, 320, 10, 10, true);
-	node7 = new Node(100, 320, 10, 10, true);
+	node1 = new Node(100, 80);
+	node2 = new Node(220, 110);
+	node3 = new Node(180, 230);
+	node4 = new Node(300, 160);
+	node5 = new Node(430, 530);
+	node6 = new Node(520, 320);
+	node7 = new Node(100, 320);
 
 	//initialize nodes
 	auto edge = new Edge(node1->xPosition, node1->yPosition, node2->xPosition, node2->yPosition);
@@ -69,6 +69,9 @@ Graph::Graph()
 	nodes.push_back(*node7);
 }
 
+void Graph::Draw(){}
+void Graph::Update(float deltaTime){}
+void Graph::OnCollision(IGameObject * collidedObject){}
 
 Graph::~Graph()
 {

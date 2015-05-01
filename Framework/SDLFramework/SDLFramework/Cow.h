@@ -8,8 +8,13 @@
 #include "Graph.h"
 class Cow : public IGameObject
 {
-public:
+private:
+	Node* currentNode;
 
+public:
+	void setCurrentNode(Node* newCurrentNode);
+
+	//IgameObject methodes
 	virtual void Draw() override;
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;

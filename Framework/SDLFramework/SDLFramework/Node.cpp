@@ -6,13 +6,21 @@ Node::Node()
 	
 }
 
-Node::Node( int x, int y, int width, int height, bool filled)
+Node::Node( int x, int y)
 {
 	xPosition = x;
 	yPosition = y;
-	nodeWidth = width;
-	nodeHeight = height;
-	isFilled = filled;
+	nodeWidth = 10;
+	nodeHeight = 10;
+	isFilled = true;
+
+	mIsStartingNode = false;
+	mIsTargetNode = false;
+	amountOfEdgesChecked = 0;
+	mNodeHasBeenIterated = false;
+	mIsGValueCalculated = false;
+	isAddedToClosedList = false;
+	isNodeVisited = false;
 }
 
 Node::~Node()
@@ -55,3 +63,8 @@ std::vector<Edge> Node::getEdges()
 {
 	return edges;
 }
+
+
+void Node::Draw(){}
+void Node::Update(float deltaTime){}
+void Node::OnCollision(IGameObject * collidedObject){}

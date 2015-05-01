@@ -2,9 +2,13 @@
 #include "Config.h"
 #include "IGameObject.h"
 #include "FWApplication.h"
+#include "Node.h"
 
 class Mouse : public IGameObject
 {
+private:
+	Node* currentNode;
+
 public:
 
 	virtual void Draw() override;
