@@ -5,6 +5,7 @@
 
 Graph::Graph(FWApplication* application)
 { 
+
 	// initialize nodes
 	node1 = new Node(100, 80);
 	node2 = new Node(220, 110);

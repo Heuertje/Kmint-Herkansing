@@ -48,8 +48,13 @@ public:
 	void setHeight(double height);
 
 	void addNeighbour(Node*newNeighbour);
+	int GetNodeID();
 
 	void addEdge(Edge*newEdge);
 	std::vector<Edge> getEdges();
+	void AddNeighbors(Node* neighbor);
+	std::vector<Node*> neighbors;
+	std::vector<Edge*> edgesToNeighbors;
+	std::vector<Edge*> Node::GetEdgesToNeighbors();
 };
 
