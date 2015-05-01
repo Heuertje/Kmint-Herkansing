@@ -57,8 +57,6 @@ Graph::Graph(FWApplication* application)
 	}
 	*/
 
-	
-
 	//add all nodes into a vector for future iterations
 	nodes.push_back(*node1);
 	nodes.push_back(*node2);
