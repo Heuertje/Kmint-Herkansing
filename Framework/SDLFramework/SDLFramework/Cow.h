@@ -13,6 +13,7 @@ private:
 
 public:
 	void setCurrentNode(Node* newCurrentNode);
+	Node* getCurrentNode();
 
 	//IgameObject methodes
 	virtual void Draw() override;

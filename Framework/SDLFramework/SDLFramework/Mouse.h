@@ -10,6 +10,9 @@ private:
 	Node* currentNode;
 
 public:
+	void setCurrentNode(Node* newCurrentCode);
+	Node* getCurrentNode();
+
 
 	virtual void Draw() override;
 	virtual void Update(float deltaTime) override;

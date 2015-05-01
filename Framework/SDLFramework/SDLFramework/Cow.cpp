@@ -12,6 +12,11 @@ void Cow::setCurrentNode(Node* newCurrentNode)
 	currentNode = newCurrentNode;
 }
 
+Node* Cow::getCurrentNode()
+{
+	return currentNode;
+}
+
 void Cow::Draw()
 {
 	mApplication->DrawTexture(mTexture, currentNode->xPosition, currentNode->yPosition, mWidth, mHeight);

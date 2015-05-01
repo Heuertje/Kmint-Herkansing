@@ -5,6 +5,15 @@ Mouse::Mouse()
 	mTexture = mApplication->LoadTexture("rabbit-3.png");
 }
 
+void Mouse::setCurrentNode(Node* newCurrentNode)
+{
+	currentNode = newCurrentNode;
+}
+
+Node* Mouse::getCurrentNode()
+{
+	return currentNode;
+}
 
 void Mouse::Draw()
 {
