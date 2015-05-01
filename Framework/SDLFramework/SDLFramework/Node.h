@@ -1,7 +1,9 @@
 #pragma once
 #include <vector>
 #include "Edge.h"
-class Node
+#include "IGameObject.h"
+#include "FWApplication.h"
+class Node : public IGameObject
 {
 private:
 	
@@ -10,6 +12,11 @@ private:
 	
 
 public:
+	virtual void Draw();
+	virtual void Update(float deltaTime) override;
+	virtual void OnCollision(IGameObject * collidedObject) override;
+
+
 	double xPosition;
 	double yPosition;
 	double nodeHeight;
@@ -18,8 +25,20 @@ public:
 	
 	std::vector<Node> neighbours;
 	std::vector<Edge> edges;
+	bool mIsStartingNode;
+	bool mIsTargetNode;
+	int amountOfEdgesChecked;
+	bool mNodeHasBeenIterated;
+	bool mIsGValueCalculated;
+	bool isAddedToClosedList;
+	bool isNodeVisited;
+	int mGValue;
+	int mHValue;
+	int mFValue;
+	int mNodeID;
+	Node* mParentNode;
 	Node();
-	Node( int x, int y, int width, int height, bool filled);
+	Node(int x, int y);
 	~Node();
 	void setX(double x);
 	void setY(double y);

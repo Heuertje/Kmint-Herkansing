@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Config.h"
 #include "FWApplication.h"
+#include "IGameObject.h"
 #include <SDL_events.h>
 #include "SDL_timer.h"
 #include <time.h>
@@ -25,10 +26,10 @@ int main(int args[])
 	application->SetTargetFPS(60);
 	application->SetColor(Color(255, 10, 40, 255));
 	
-	firstGraph = new Graph();
+	firstGraph = new Graph(application);
 	graphNodes = firstGraph->getNodes();
 
-	Cow* cow = new Cow();
+//	Cow* cow = new Cow();
 
 	//while (true){}
 	while (application->IsRunning())
@@ -77,7 +78,7 @@ int main(int args[])
 					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
 				}
 			}
-			application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
+			//application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
 		}
 		
 		// For the background
@@ -90,6 +91,6 @@ int main(int args[])
 	}
 	delete application;
 	delete firstGraph;
-	delete cow;
+	//delete cow;
 	return EXIT_SUCCESS;
 }
