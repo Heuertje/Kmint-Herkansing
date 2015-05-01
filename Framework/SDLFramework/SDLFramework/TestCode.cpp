@@ -35,7 +35,11 @@ private:
 	Node *orgNode;//the originating vertex
 	Node *dstNode;//the destination vertex
 	unsigned cost;//cost of the edge
-
+	int mLeftConnectedNodeID;
+	int mLeftConnectedNodeID;
+	int mRightConnectedNodeID;
+	int mRightConnectedNodeID;
+	int mWeight;
 public:
 	Edge(Node *firstNode, Node *secNode, unsigned inCost)
 	{
@@ -58,6 +62,13 @@ public:
 	{
 		return cost;
 	}
+
+	void SetLeftConnectedNodeID(int id)
+	{
+		throw std::logic_error("The method or operation is not implemented.");
+	}
+
+
 };
 
 //An object of this class holds a vertex of the graph

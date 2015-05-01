@@ -3,6 +3,7 @@
 
 Edge::Edge()
 {
+	FWApplication* application = FWApplication::GetInstance();
 }
 Edge::Edge(double startX, double startY, double endX, double endY)
 {
@@ -11,10 +12,44 @@ Edge::Edge(double startX, double startY, double endX, double endY)
 
 	 endXPosition = endX;
 	 endYPosition = endY;
+	 mWeight = 1000;
 }
+
+
+
+int Edge::GetWeight()
+{
+	return mWeight;
+}
+
+void Edge::SetLeftConnectedNodeID(int id)
+{
+	mLeftConnectedNodeID = id;
+}
+
+void Edge::SetRightConnectedNodeID(int id)
+{
+	mRightConnectedNodeID = id;
+
+}
+
+int Edge::GetLeftConnectedNodeID()
+{
+	return mLeftConnectedNodeID;
+}
+
+int Edge::GetRightConnectedNodeID()
+{
+	return mRightConnectedNodeID;
+}
+
+
 
 Edge::~Edge()
 {
 }
 
 
+void Edge::Draw(){}
+void Edge::Update(float deltaTime){}
+void Edge::OnCollision(IGameObject * collidedObject){}
