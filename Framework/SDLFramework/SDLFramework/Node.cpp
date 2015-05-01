@@ -71,6 +71,5 @@ void Node::Draw(){
 	//#endTestDraw
 
 }
-
 void Node::Update(float deltaTime){}
 void Node::OnCollision(IGameObject * collidedObject){}
