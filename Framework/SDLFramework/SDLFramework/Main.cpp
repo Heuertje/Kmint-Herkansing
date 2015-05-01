@@ -78,9 +78,15 @@ int main(int args[])
 					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
 				}
 			}
+<<<<<<< HEAD
 			//application->DrawTexture(cow->cowTexture, it->xPosition, it->yPosition, 50, 50);
+=======
+>>>>>>> origin/newBranchTest
 		}
-		
+
+		//uncommit this if cow has a node
+		//cow->Draw();
+
 		// For the background
 		application->SetColor(Color(255, 255, 255, 255));
 
