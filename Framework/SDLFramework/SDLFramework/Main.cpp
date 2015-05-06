@@ -7,6 +7,7 @@
 #include <time.h>
 #include "Graph.h"
 #include "Cow.h"
+#include "Mouse.h"
 #include <random>
 //#include "vld.h"
 
@@ -31,6 +32,8 @@ int main(int args[])
 	graphNodes = firstGraph->getNodes();
 
 	Cow* cow = new Cow(firstGraph->getNodes().at(2));
+	Mouse* mouse = new Mouse(firstGraph->getNodes().at(6));
+
 	std::random_device rd;     // only used once to initialise (seed) engine
 	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
 	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
@@ -55,6 +58,8 @@ int main(int args[])
 					break;
 				case SDLK_SPACE:
 					cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+					mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+
 					break;
 				}
 			}
@@ -85,7 +90,7 @@ int main(int args[])
 
 		//uncommit this if cow has a node
 		cow->Draw();
-
+		mouse->Draw();
 		// For the background
 		application->SetColor(Color(255, 255, 255, 255));
 
