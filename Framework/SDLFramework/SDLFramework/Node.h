@@ -23,7 +23,7 @@ public:
 	double nodeWidth;
 	bool isFilled;
 	
-	std::vector<Edge> edges;
+	std::vector<Edge*> edges;
 	bool mIsStartingNode;
 	bool mIsTargetNode;
 	int amountOfEdgesChecked;
@@ -50,7 +50,7 @@ public:
 	int GetNodeID();
 
 	void addEdge(Edge*newEdge);
-	std::vector<Edge> getEdges();
+	std::vector<Edge*> getEdges();
 	void AddNeighbors(Node* neighbor);
 	std::vector<Node*> neighbors;
 	std::vector<Edge*> edgesToNeighbors;

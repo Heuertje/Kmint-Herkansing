@@ -7,13 +7,14 @@ Graph::Graph(FWApplication* application)
 { 
 
 	// initialize nodes
-	node1 = new Node(100, 80);
-	node2 = new Node(220, 110);
-	node3 = new Node(180, 230);
-	node4 = new Node(300, 160);
-	node5 = new Node(430, 530);
-	node6 = new Node(520, 320);
-	node7 = new Node(100, 320);
+	Node* node1 = new Node(100, 80);;
+	Node* node2 = new Node(220, 110);
+	Node* node3 = new Node(180, 230);
+
+	Node* node4 = new Node(300, 160);
+	Node* node5 = new Node(430, 530);
+	Node* node6 = new Node(520, 320);
+	Node* node7 = new Node(100, 320);
 
 	//initialize nodes
 	auto edge = new Edge(node1->xPosition, node1->yPosition, node2->xPosition, node2->yPosition);
@@ -74,16 +75,11 @@ void Graph::OnCollision(IGameObject * collidedObject){}
 
 Graph::~Graph()
 {
-	for (int i = 0; i < edge.size(); i++){
-		delete edge[i];
+	for (Node* var : nodes)
+	{
+		delete var;
 	}
-	delete node1;
-	delete node2;
-	delete node3;
-	delete node4;
-	delete node5;
-	delete node6;
-
+	nodes.clear();
 }
 
 std::vector<Node*> Graph::getNodes()

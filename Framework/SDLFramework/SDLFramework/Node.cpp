@@ -25,6 +25,12 @@ Node::Node( int x, int y)
 
 Node::~Node()
 {
+	for (Edge* var : edges)
+	{
+		delete var;
+	}
+	edges.clear();
+
 }
 
 void Node::setX(double x)
@@ -56,13 +62,14 @@ void Node::addNeighbor(Node*newNeighbor)
 
 void Node::addEdge(Edge*newEdge)
 {
-	edges.push_back(*newEdge);
+	edges.push_back(newEdge);
 }
 
-std::vector<Edge> Node::getEdges()
+std::vector<Edge*> Node::getEdges()
 {
 	return edges;
 }
+
 int Node::GetNodeID(){
 	return mNodeID;
 }

@@ -66,34 +66,20 @@ int main(int args[])
 
 			if (graphNodes[i]->getEdges().size() != 0)
 			{
-				temporaryEdgesVector = graphNodes[i]->getEdges();
-
-				//Drawing multiply edges added
-				for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
+				for (int j = 0; j < graphNodes[i]->getEdges().size(); j++)
 				{
-					application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
+					application->DrawLine(graphNodes[i]->getEdges().at(j)->startXPosition, graphNodes[i]->getEdges().at(j)->startYPosition, graphNodes[i]->getEdges().at(j)->endXPosition, graphNodes[i]->getEdges().at(j)->endYPosition);
 				}
+
+				//temporaryEdgesVector = graphNodes[i]->getEdges();
+				//
+				////Drawing multiply edges added
+				//for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
+				//{
+				//	application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
+				//}
 			}
 		}
-
-		////Start drawing
-		//for (std::vector<Node*>::iterator it = graphNodes.begin(); it != graphNodes.end(); ++it)
-		//{
-		//	//Draw all nodes
-		//	application->DrawRect((int)it->xPosition, (int)it->yPosition, (int)it->nodeWidth, (int)it->nodeHeight, it->isFilled);
-		//	
-		//	//If node has edges
-		//	if (it->getEdges().size() !=0)
-		//	{
-		//		temporaryEdgesVector = it->getEdges();
-		//		
-		//		//Drawing multiply edges added
-		//		for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
-		//		{
-		//			application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
-		//		}
-		//	}
-		//}
 
 		//uncommit this if cow has a node
 		cow->Draw();

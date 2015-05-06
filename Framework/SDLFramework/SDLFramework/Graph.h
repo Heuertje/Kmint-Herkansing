@@ -6,24 +6,8 @@
 #include "FWApplication.h"
 class Graph : public IGameObject
 {
-	
-
 private:
-	
-	Node* node1;
-	Node* node2;
-	Node* node3;
-		  
-	Node* node4;
-	Node* node5;
-	Node* node6;
-	Node* node7;
-
-
-	 
 	std::vector<Edge*> edge;
-
-
 
 public:
 
