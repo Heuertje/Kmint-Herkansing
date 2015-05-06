@@ -19,6 +19,7 @@ public:
 	virtual void OnCollision(IGameObject * collidedObject) override;
 
 	Mouse();
+	Mouse(Node* newNode);
 	virtual ~Mouse();
 };
 

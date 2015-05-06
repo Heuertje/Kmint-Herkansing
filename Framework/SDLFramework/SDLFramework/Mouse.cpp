@@ -1,8 +1,11 @@
 #include "Mouse.h"
-
-Mouse::Mouse()
+Mouse::Mouse(){};
+Mouse::Mouse(Node* newNode)
 {
-	mTexture = mApplication->LoadTexture("rabbit-3.png");
+	currentNode = newNode;
+	mTexture = mApplication->LoadTexture("pill.png");
+	mWidth = 50;
+	mHeight = 50;
 }
 
 void Mouse::setCurrentNode(Node* newCurrentNode)
@@ -17,7 +20,7 @@ Node* Mouse::getCurrentNode()
 
 void Mouse::Draw()
 {
-
+	mApplication->DrawTexture(mTexture, currentNode->getXPos(), currentNode->getYPos(), mWidth, mHeight);
 }
 
 void Mouse::Update(float deltaTime)
@@ -29,6 +32,7 @@ void Mouse::OnCollision(IGameObject * collidedObject)
 {
 
 }
+
 
 Mouse::~Mouse()
 {
