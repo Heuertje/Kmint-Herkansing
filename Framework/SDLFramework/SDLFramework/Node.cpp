@@ -30,13 +30,11 @@ Node::~Node()
 		delete var;
 	}
 	edges.clear();
-
 }
 
 void Node::setX(double x)
 {
 	xPosition = x;
-	
 }
 
 void Node::setY(double y)
@@ -47,7 +45,6 @@ void Node::setY(double y)
 void Node::setWidth(double width)
 {
 	nodeWidth = width;
-
 }
 
 void Node::setHeight(double height)
