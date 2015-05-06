@@ -44,12 +44,15 @@ int Edge::GetRightConnectedNodeID()
 }
 
 
+void Edge::Draw()
+{
+	FWApplication::GetInstance()->DrawLine(startXPosition, startYPosition, endXPosition, endYPosition);
+}
+
+void Edge::Update(float deltaTime){}
+void Edge::OnCollision(IGameObject * collidedObject){}
 
 Edge::~Edge()
 {
+
 }
-
-
-void Edge::Draw(){}
-void Edge::Update(float deltaTime){}
-void Edge::OnCollision(IGameObject * collidedObject){}

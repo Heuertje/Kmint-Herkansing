@@ -70,16 +70,8 @@ int main(int args[])
 			{
 				for (int j = 0; j < graphNodes[i]->getEdges().size(); j++)
 				{
-					application->DrawLine(graphNodes[i]->getEdges().at(j)->startXPosition, graphNodes[i]->getEdges().at(j)->startYPosition, graphNodes[i]->getEdges().at(j)->endXPosition, graphNodes[i]->getEdges().at(j)->endYPosition);
+					graphNodes[i]->getEdges().at(j)->Draw();
 				}
-
-				//temporaryEdgesVector = graphNodes[i]->getEdges();
-				//
-				////Drawing multiply edges added
-				//for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
-				//{
-				//	application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
-				//}
 			}
 		}
 
