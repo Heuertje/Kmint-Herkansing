@@ -49,9 +49,9 @@ void Node::setHeight(double height)
 	nodeHeight = height;
 }
 
-void Node::addNeighbour(Node*newNeighbour)
+void Node::addNeighbor(Node*newNeighbor)
 {
-	neighbours.push_back(*newNeighbour);
+	neighbors.push_back(newNeighbor);
 }
 
 void Node::addEdge(Edge*newEdge)

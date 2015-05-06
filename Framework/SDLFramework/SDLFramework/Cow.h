@@ -21,8 +21,7 @@ public:
 	virtual void OnCollision(IGameObject * collidedObject) override;
 
 
-	Cow();
-	void init();
+	Cow(Node* newNode);
 	virtual ~Cow();
 };
 

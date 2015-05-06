@@ -10,7 +10,7 @@
 //#include "vld.h"
 
 Graph*firstGraph;
-std::vector<Node> graphNodes;
+std::vector<Node*> graphNodes;
 std::vector<Edge> temporaryEdgesVector;
 
 int main(int args[])
@@ -29,7 +29,7 @@ int main(int args[])
 	firstGraph = new Graph(application);
 	graphNodes = firstGraph->getNodes();
 
-//	Cow* cow = new Cow();
+	Cow* cow = new Cow(firstGraph->getNodes().at(2));
 
 	//while (true){}
 	while (application->IsRunning())
@@ -49,10 +49,9 @@ int main(int args[])
 				switch (event.key.keysym.sym){
 				case SDLK_ESCAPE:
 					application->Quit();
-
 					break;
-				default:
-
+				case SDLK_SPACE:
+					cow->setCurrentNode(firstGraph->getNodes().at(5));
 					break;
 				}
 			}
@@ -61,17 +60,14 @@ int main(int args[])
 		application->SetColor(Color(0, 0, 0, 255));
 		application->DrawText("Welcome to Andrew, Jeroen & Bas KMINT Application", 400 ,20 );
 	
-		//Start drawing
-		for (std::vector<Node>::iterator it = graphNodes.begin(); it != graphNodes.end(); ++it)
+		for (int i = 0; i < graphNodes.size(); i++)
 		{
-			//Draw all nodes
-			application->DrawRect((int)it->xPosition, (int)it->yPosition, (int)it->nodeWidth, (int)it->nodeHeight, it->isFilled);
-			
-			//If node has edges
-			if (it->getEdges().size() !=0)
+			application->DrawRect(graphNodes[i]->xPosition, graphNodes[i]->yPosition, graphNodes[i]->nodeHeight, graphNodes[i]->nodeHeight, graphNodes[i]->isFilled);
+
+			if (graphNodes[i]->getEdges().size() != 0)
 			{
-				temporaryEdgesVector = it->getEdges();
-				
+				temporaryEdgesVector = graphNodes[i]->getEdges();
+
 				//Drawing multiply edges added
 				for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
 				{
@@ -80,8 +76,27 @@ int main(int args[])
 			}
 		}
 
+		////Start drawing
+		//for (std::vector<Node*>::iterator it = graphNodes.begin(); it != graphNodes.end(); ++it)
+		//{
+		//	//Draw all nodes
+		//	application->DrawRect((int)it->xPosition, (int)it->yPosition, (int)it->nodeWidth, (int)it->nodeHeight, it->isFilled);
+		//	
+		//	//If node has edges
+		//	if (it->getEdges().size() !=0)
+		//	{
+		//		temporaryEdgesVector = it->getEdges();
+		//		
+		//		//Drawing multiply edges added
+		//		for (std::vector<Edge>::iterator edgeIt = temporaryEdgesVector.begin(); edgeIt != temporaryEdgesVector.end(); ++edgeIt)
+		//		{
+		//			application->DrawLine((int)edgeIt->startXPosition, (int)edgeIt->startYPosition, (int)edgeIt->endXPosition, (int)edgeIt->endYPosition);
+		//		}
+		//	}
+		//}
+
 		//uncommit this if cow has a node
-		//cow->Draw();
+		cow->Draw();
 
 		// For the background
 		application->SetColor(Color(255, 255, 255, 255));

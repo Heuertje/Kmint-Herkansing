@@ -1,7 +1,8 @@
 #include "Cow.h"
 
-Cow::Cow()
+Cow::Cow(Node* newNode)
 {
+	currentNode = newNode;
 	mTexture = mApplication->LoadTexture("cow-1.png");
 	mWidth = 50;
 	mHeight = 50;

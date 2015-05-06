@@ -59,13 +59,13 @@ Graph::Graph(FWApplication* application)
 	*/
 
 	//add all nodes into a vector for future iterations
-	nodes.push_back(*node1);
-	nodes.push_back(*node2);
-	nodes.push_back(*node3);
-	nodes.push_back(*node4);
-	nodes.push_back(*node5);
-	nodes.push_back(*node6);
-	nodes.push_back(*node7);
+	nodes.push_back(node1);
+	nodes.push_back(node2);
+	nodes.push_back(node3);
+	nodes.push_back(node4);
+	nodes.push_back(node5);
+	nodes.push_back(node6);
+	nodes.push_back(node7);
 }
 
 void Graph::Draw(){}
@@ -86,7 +86,7 @@ Graph::~Graph()
 
 }
 
-std::vector<Node> Graph::getNodes()
+std::vector<Node*> Graph::getNodes()
 {
 	return nodes;
 }

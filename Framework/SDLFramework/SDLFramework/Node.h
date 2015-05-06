@@ -23,7 +23,6 @@ public:
 	double nodeWidth;
 	bool isFilled;
 	
-	std::vector<Node> neighbours;
 	std::vector<Edge> edges;
 	bool mIsStartingNode;
 	bool mIsTargetNode;
@@ -47,7 +46,7 @@ public:
 
 	void setHeight(double height);
 
-	void addNeighbour(Node*newNeighbour);
+	void addNeighbor(Node*newNeighbor);
 	int GetNodeID();
 
 	void addEdge(Edge*newEdge);
