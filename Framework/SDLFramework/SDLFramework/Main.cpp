@@ -7,6 +7,7 @@
 #include <time.h>
 #include "Graph.h"
 #include "Cow.h"
+#include <random>
 //#include "vld.h"
 
 Graph*firstGraph;
@@ -30,7 +31,9 @@ int main(int args[])
 	graphNodes = firstGraph->getNodes();
 
 	Cow* cow = new Cow(firstGraph->getNodes().at(2));
-
+	std::random_device rd;     // only used once to initialise (seed) engine
+	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
+	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
 	//while (true){}
 	while (application->IsRunning())
 	{
@@ -51,14 +54,14 @@ int main(int args[])
 					application->Quit();
 					break;
 				case SDLK_SPACE:
-					cow->setCurrentNode(firstGraph->getNodes().at(5));
+					cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
 					break;
 				}
 			}
 		}
 		
 		application->SetColor(Color(0, 0, 0, 255));
-		application->DrawText("Welcome to Andrew, Jeroen & Bas KMINT Application", 400 ,20 );
+		application->DrawText("Welcome to Sagar & Bas KMINT Application", 400 ,20 );
 	
 		for (int i = 0; i < graphNodes.size(); i++)
 		{
