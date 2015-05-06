@@ -12,7 +12,7 @@ Node::Node( int x, int y)
 	yPosition = y;
 	nodeWidth = 10;
 	nodeHeight = 10;
-	isFilled = true;
+	filled = true;
 
 	mIsStartingNode = false;
 	mIsTargetNode = false;
@@ -37,9 +37,19 @@ void Node::setX(double x)
 	xPosition = x;
 }
 
+double Node::getXPos()
+{
+	return xPosition;
+}
+
 void Node::setY(double y)
 {
 	yPosition = y;
+}
+
+double Node::getYPos()
+{
+	return yPosition;
 }
 
 void Node::setWidth(double width)
@@ -47,9 +57,24 @@ void Node::setWidth(double width)
 	nodeWidth = width;
 }
 
+double Node::getWidth()
+{
+	return nodeWidth;
+}
+
 void Node::setHeight(double height)
 {
 	nodeHeight = height;
+}
+
+double Node::getHeight()
+{
+	return nodeHeight;
+}
+
+bool Node::isFilled()
+{
+	return filled;
 }
 
 void Node::addNeighbor(Node*newNeighbor)

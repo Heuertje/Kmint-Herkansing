@@ -6,7 +6,12 @@
 class Node : public IGameObject
 {
 private:
-	
+
+	double xPosition;
+	double yPosition;
+	double nodeHeight;
+	double nodeWidth;
+	bool filled;
 
 
 	
@@ -17,11 +22,6 @@ public:
 	virtual void OnCollision(IGameObject * collidedObject) override;
 
 
-	double xPosition;
-	double yPosition;
-	double nodeHeight;
-	double nodeWidth;
-	bool isFilled;
 	
 	std::vector<Edge*> edges;
 	bool mIsStartingNode;
@@ -39,12 +39,18 @@ public:
 	Node();
 	Node(int x, int y);
 	~Node();
+
 	void setX(double x);
 	void setY(double y);
+	double getXPos();
+	double getYPos();
 
 	void setWidth(double width);
-
 	void setHeight(double height);
+	double getWidth();
+	double getHeight();
+
+	bool isFilled();
 
 	void addNeighbor(Node*newNeighbor);
 	int GetNodeID();

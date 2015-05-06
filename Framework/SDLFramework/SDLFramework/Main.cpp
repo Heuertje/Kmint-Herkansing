@@ -62,7 +62,7 @@ int main(int args[])
 	
 		for (int i = 0; i < graphNodes.size(); i++)
 		{
-			application->DrawRect(graphNodes[i]->xPosition, graphNodes[i]->yPosition, graphNodes[i]->nodeHeight, graphNodes[i]->nodeHeight, graphNodes[i]->isFilled);
+			application->DrawRect(graphNodes[i]->getXPos(), graphNodes[i]->getYPos(), graphNodes[i]->getHeight(), graphNodes[i]->getHeight(), graphNodes[i]->isFilled());
 
 			if (graphNodes[i]->getEdges().size() != 0)
 			{

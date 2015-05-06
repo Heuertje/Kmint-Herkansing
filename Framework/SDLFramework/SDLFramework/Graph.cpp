@@ -17,34 +17,34 @@ Graph::Graph(FWApplication* application)
 	Node* node7 = new Node(100, 320);
 
 	//initialize nodes
-	auto edge = new Edge(node1->xPosition, node1->yPosition, node2->xPosition, node2->yPosition);
+	auto edge = new Edge(node1->getXPos(), node1->getYPos(), node2->getXPos(), node2->getYPos());
 	node1->addEdge(edge);
 
-	edge = new Edge(node2->xPosition, node2->yPosition, node3->xPosition, node3->yPosition);
+	edge = new Edge(node2->getXPos(), node2->getYPos(), node3->getXPos(), node3->getYPos());
 	node2->addEdge(edge);
 
-	edge = new Edge(node3->xPosition, node3->yPosition, node4->xPosition, node4->yPosition);
+	edge = new Edge(node3->getXPos(), node3->getYPos(), node4->getXPos(), node4->getYPos());
 	node3->addEdge(edge);
 
-	edge = new Edge(node3->xPosition, node3->yPosition, node5->xPosition, node5->yPosition);
+	edge = new Edge(node3->getXPos(), node3->getYPos(), node5->getXPos(), node5->getYPos());
 	node3->addEdge(edge);
 
-	edge = new Edge(node4->xPosition, node4->yPosition, node5->xPosition, node5->yPosition);
+	edge = new Edge(node4->getXPos(), node4->getYPos(), node5->getXPos(), node5->getYPos());
 	node4->addEdge(edge);
 
-	edge = new Edge(node4->xPosition, node4->yPosition, node6->xPosition, node6->yPosition);
+	edge = new Edge(node4->getXPos(), node4->getYPos(), node6->getXPos(), node6->getYPos());
 	node4->addEdge(edge);
 
-	edge = new Edge(node5->xPosition, node5->yPosition, node6->xPosition, node6->yPosition);
+	edge = new Edge(node5->getXPos(), node5->getYPos(), node6->getXPos(), node6->getYPos());
 	node5->addEdge(edge);
 
-	edge = new Edge(node2->xPosition, node2->yPosition, node4->xPosition, node4->yPosition);
+	edge = new Edge(node2->getXPos(), node2->getYPos(), node4->getXPos(), node4->getYPos());
 	node2->addEdge(edge);
 	
-	edge = new Edge(node1->xPosition, node1->yPosition, node7->xPosition, node7->yPosition);
+	edge = new Edge(node1->getXPos(), node1->getYPos(), node7->getXPos(), node7->getYPos());
 	node7->addEdge(edge);
 
-	edge = new Edge(node7->xPosition, node7->yPosition, node5->xPosition, node5->yPosition);
+	edge = new Edge(node7->getXPos(), node7->getYPos(), node5->getXPos(), node5->getYPos());
 	node7->addEdge(edge);
 
 	//add created edges to their respective nodes
