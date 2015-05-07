@@ -60,15 +60,12 @@ int main(int args[])
 					break;
 				case SDLK_SPACE:
 					if (caught){
-						//cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-						cow->setCurrentNode(firstGraph->getNodes().at(1));
-						caught = false;
-
 						for (int i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
-							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID()+1 << endl;
-
+							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID() + 1 << endl;
 						}
 						cout << endl << endl;
+						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						caught = false;
 					}
 					else{
 						mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));

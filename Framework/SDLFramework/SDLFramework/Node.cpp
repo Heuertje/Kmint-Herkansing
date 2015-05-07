@@ -109,7 +109,6 @@ std::vector<Node*> Node::GetNeighbors(){
 }
 void Node::AddNeighbors(Node* neighbor)
 {
-	std::cout << GetBoundingBox().x;
 	//create a new edge that will connect the 'this' node with the 'neighbor' node
 	auto edge = new Edge(
 		this->xPosition,
