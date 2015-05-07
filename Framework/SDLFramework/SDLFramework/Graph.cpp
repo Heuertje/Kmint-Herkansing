@@ -15,36 +15,45 @@ Graph::Graph(FWApplication* application)
 	Node* node6 = new Node(520, 320, 5);
 	Node* node7 = new Node(100, 320, 6);
 
-	//initialize nodes
-	auto edge = new Edge(node1->getXPos(), node1->getYPos(), node2->getXPos(), node2->getYPos());
-	node1->addEdge(edge);
-	
-	edge = new Edge(node2->getXPos(), node2->getYPos(), node3->getXPos(), node3->getYPos());
-	node2->addEdge(edge);
+	node1->AddNeighbors(node2);
+	node2->AddNeighbors(node3);
+	node3->AddNeighbors(node4);
+	node3->AddNeighbors(node5);
+	node4->AddNeighbors(node6);
+	node5->AddNeighbors(node6);
+	node2->AddNeighbors(node4);
+	node1->AddNeighbors(node7);
+	node7->AddNeighbors(node5);
+	////initialize nodes
+	//auto edge = new Edge(node1->getXPos(), node1->getYPos(), node2->getXPos(), node2->getYPos());
+	//node1->addEdge(edge);
+	//
+	//edge = new Edge(node2->getXPos(), node2->getYPos(), node3->getXPos(), node3->getYPos());
+	//node2->addEdge(edge);
 
-	edge = new Edge(node3->getXPos(), node3->getYPos(), node4->getXPos(), node4->getYPos());
-	node3->addEdge(edge);
+	//edge = new Edge(node3->getXPos(), node3->getYPos(), node4->getXPos(), node4->getYPos());
+	//node3->addEdge(edge);
 
-	edge = new Edge(node3->getXPos(), node3->getYPos(), node5->getXPos(), node5->getYPos());
-	node3->addEdge(edge);
+	//edge = new Edge(node3->getXPos(), node3->getYPos(), node5->getXPos(), node5->getYPos());
+	//node3->addEdge(edge);
 
-	edge = new Edge(node4->getXPos(), node4->getYPos(), node5->getXPos(), node5->getYPos());
-	node4->addEdge(edge);
+	//edge = new Edge(node4->getXPos(), node4->getYPos(), node5->getXPos(), node5->getYPos());
+	//node4->addEdge(edge);
 
-	edge = new Edge(node4->getXPos(), node4->getYPos(), node6->getXPos(), node6->getYPos());
-	node4->addEdge(edge);
+	//edge = new Edge(node4->getXPos(), node4->getYPos(), node6->getXPos(), node6->getYPos());
+	//node4->addEdge(edge);
 
-	edge = new Edge(node5->getXPos(), node5->getYPos(), node6->getXPos(), node6->getYPos());
-	node5->addEdge(edge);
+	//edge = new Edge(node5->getXPos(), node5->getYPos(), node6->getXPos(), node6->getYPos());
+	//node5->addEdge(edge);
 
-	edge = new Edge(node2->getXPos(), node2->getYPos(), node4->getXPos(), node4->getYPos());
-	node2->addEdge(edge);
-	
-	edge = new Edge(node1->getXPos(), node1->getYPos(), node7->getXPos(), node7->getYPos());
-	node7->addEdge(edge);
+	//edge = new Edge(node2->getXPos(), node2->getYPos(), node4->getXPos(), node4->getYPos());
+	//node2->addEdge(edge);
+	//
+	//edge = new Edge(node1->getXPos(), node1->getYPos(), node7->getXPos(), node7->getYPos());
+	//node7->addEdge(edge);
 
-	edge = new Edge(node7->getXPos(), node7->getYPos(), node5->getXPos(), node5->getYPos());
-	node7->addEdge(edge);
+	//edge = new Edge(node7->getXPos(), node7->getYPos(), node5->getXPos(), node5->getYPos());
+	//node7->addEdge(edge);
 
 	//add created edges to their respective nodes
 

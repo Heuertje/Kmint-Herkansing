@@ -79,7 +79,7 @@ int main(int args[])
 			std::vector<Node*> buurman =cow->getCurrentNode()->GetNeighbors();
 			std::cout << cow->getCurrentNode()->GetNodeID();
 			for (int i = 0; i < buurman.size(); i++){
-				std::cout << "Buren:" + buurman.at(i)->GetNodeID();
+				std::cout << "\nBuren:" + buurman.at(i)->GetNodeID();
 			}
 
 			//application->DrawText("The following nodes are connected to thisone:" , 430,50);
