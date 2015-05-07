@@ -5,6 +5,7 @@ Edge::Edge()
 {
 	FWApplication* application = FWApplication::GetInstance();
 }
+
 Edge::Edge(double startX, double startY, double endX, double endY)
 {
 	 startXPosition = startX;
@@ -49,8 +50,15 @@ void Edge::Draw()
 	FWApplication::GetInstance()->DrawLine(startXPosition, startYPosition, endXPosition, endYPosition);
 }
 
-void Edge::Update(float deltaTime){}
-void Edge::OnCollision(IGameObject * collidedObject){}
+void Edge::Update(float deltaTime)
+{
+	
+}
+
+void Edge::OnCollision(IGameObject * collidedObject)
+{
+	
+}
 
 Edge::~Edge()
 {
