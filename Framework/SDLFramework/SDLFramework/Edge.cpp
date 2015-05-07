@@ -1,11 +1,5 @@
 #include "Edge.h"
 
-
-Edge::Edge()
-{
-	FWApplication* application = FWApplication::GetInstance();
-}
-
 Edge::Edge(double startX, double startY, double endX, double endY)
 {
 	 startXPosition = startX;
@@ -15,8 +9,6 @@ Edge::Edge(double startX, double startY, double endX, double endY)
 	 endYPosition = endY;
 	 mWeight = 1000;
 }
-
-
 
 int Edge::GetWeight()
 {
@@ -47,6 +39,7 @@ int Edge::GetRightConnectedNodeID()
 
 void Edge::Draw()
 {
+	
 	FWApplication::GetInstance()->DrawLine(startXPosition, startYPosition, endXPosition, endYPosition);
 }
 

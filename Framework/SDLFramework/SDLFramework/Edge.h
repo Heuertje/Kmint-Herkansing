@@ -24,7 +24,6 @@ public:
 	int GetRightConnectedNodeID();
 
 	//constructor, destructor
-	Edge();
 	Edge(double startX, double startY, double endX, double endY);
 	~Edge();
 };

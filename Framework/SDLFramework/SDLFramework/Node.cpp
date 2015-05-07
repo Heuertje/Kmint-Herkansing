@@ -1,6 +1,6 @@
 #include "Node.h"
 #include "Edge.h"
-
+#include <iostream>
 Node::Node()
 {
 }
@@ -109,14 +109,16 @@ std::vector<Node*> Node::GetNeighbors(){
 }
 void Node::AddNeighbors(Node* neighbor)
 {
+	std::cout << GetBoundingBox().x;
 	//create a new edge that will connect the 'this' node with the 'neighbor' node
 	auto edge = new Edge(
-		this->GetBoundingBox().x,
-		this->GetBoundingBox().y,
-		neighbor->GetBoundingBox().x,
-		neighbor->GetBoundingBox().y
+		this->xPosition,
+		this->yPosition,
+		neighbor->getXPos(),
+		neighbor->getYPos()
 		);
-
+	this->addEdge(edge);
+	neighbor->addEdge(edge);
 	edge->SetLeftConnectedNodeID(this->GetNodeID());
 	edge->SetRightConnectedNodeID(neighbor->GetNodeID());
 

@@ -9,6 +9,7 @@
 #include "Cow.h"
 #include "Mouse.h"
 #include <random>
+using namespace std;
 //#include "vld.h"
 
 Graph*firstGraph;
@@ -41,6 +42,7 @@ int main(int args[])
 	while (application->IsRunning())
 	{
 		application->StartTick();
+		application->SetColor(Color(0, 0, 0, 255));
 
 		SDL_Event event;
 		while (SDL_PollEvent(&event))
@@ -58,8 +60,15 @@ int main(int args[])
 					break;
 				case SDLK_SPACE:
 					if (caught){
-						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						//cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						cow->setCurrentNode(firstGraph->getNodes().at(1));
 						caught = false;
+
+						for (int i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
+							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID()+1 << endl;
+
+						}
+						cout << endl << endl;
 					}
 					else{
 						mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
@@ -77,21 +86,18 @@ int main(int args[])
 			application->SetColor(Color(255, 0, 0, 255));
 			application->DrawText("The cow has been caught", 400, 50);
 			std::vector<Node*> buurman =cow->getCurrentNode()->GetNeighbors();
-			std::cout << cow->getCurrentNode()->GetNodeID();
-			for (int i = 0; i < buurman.size(); i++){
-				std::cout << "\nBuren:" + buurman.at(i)->GetNodeID();
-			}
+
 
 			//application->DrawText("The following nodes are connected to thisone:" , 430,50);
 		}
 		for (int i = 0; i < graphNodes.size(); i++)
 		{
 			graphNodes[i]->Draw();
-			if (graphNodes[i]->getEdges().size() != 0)
+			if (graphNodes[i]->GetEdgesToNeighbors().size() != 0)
 			{
-				for (int j = 0; j < graphNodes[i]->getEdges().size(); j++)
+				for (int j = 0; j < graphNodes[i]->GetEdgesToNeighbors().size(); j++)
 				{
-					graphNodes[i]->getEdges().at(j)->Draw();
+					graphNodes[i]->GetEdgesToNeighbors().at(j)->Draw();
 				}
 			}
 		}
@@ -100,11 +106,12 @@ int main(int args[])
 		cow->Draw();
 		mouse->Draw();
 		// For the background
-		application->SetColor(Color(255, 255, 255, 255));
 
 		application->UpdateGameObjects();
 		application->RenderGameObjects();
 		application->EndTick();
+		application->SetColor(Color(255, 255, 255, 255));
+
 		
 	}
 	delete application;
