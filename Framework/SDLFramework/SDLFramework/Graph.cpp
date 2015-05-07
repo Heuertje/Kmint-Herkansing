@@ -1,7 +1,8 @@
 #include "Graph.h"
 #include "Node.h"
 #include "Edge.h"
-#
+#include <map>
+using namespace std;
 
 Graph::Graph(FWApplication* application)
 { 
@@ -81,14 +82,39 @@ void Graph::Draw(){}
 void Graph::Update(float deltaTime){}
 void Graph::OnCollision(IGameObject * collidedObject){}
 
+std::vector<Node*> Graph::ASter(Node* start, Node* goal){
+	std::map<Node*, double> openlist;
+	std::vector<Node*>* closedlist = new std::vector<Node*>();
+
+	openlist[start] = 0.0;
+	Node* current = start;
+
+	closedlist->push_back(current);
+
+	double weighttillnow = 0;
+
+	while (current != goal){ 
+		for (Edge* e : current->getEdges()){
+				int g = weighttillnow + e->mWeight;
+			//	int h = CalcH(goal, e->getChild());
+			//	int f = g + h;
+
+			//	openList[e->getChild()] = f;
+			}
+		}
+	
+	}
+
+
 Graph::~Graph()
 {
-	//for (Node* var : nodes)
-	//{
-	//	delete var;
-	//}
-	//nodes.clear();
+	for (Node* var : nodes)
+	{
+		delete var;
+	}
+	nodes.clear();
 }
+
 double Graph::DistanceToEnd(double x1, double y1, double x2, double y2){
 	return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 }

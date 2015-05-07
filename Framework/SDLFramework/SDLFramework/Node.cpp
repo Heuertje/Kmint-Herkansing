@@ -27,7 +27,7 @@ Node::~Node()
 {
 	for (Edge* var : edges)
 	{
-		delete var;
+///!!!!!!!!!!////!!!!		delete var;
 	}
 	edges.clear();
 }

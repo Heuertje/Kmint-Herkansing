@@ -19,6 +19,8 @@ public:
 	Graph(FWApplication* application);
 	double DistanceToEnd(double x1, double y1, double x2, double y2);
 	virtual ~Graph();
+	//double CalcH(goal, );
+	std::vector<Node*> ASter(Node* start, Node* goal);
 	std::vector<Node*> getNodes();
 };
 
