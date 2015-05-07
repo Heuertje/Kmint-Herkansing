@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "IGameObject.h"
 #include "FWApplication.h"
+#include <math.h>
 class Graph : public IGameObject
 {
 private:
@@ -16,6 +17,7 @@ public:
 	virtual void OnCollision(IGameObject * collidedObject) override;
 	std::vector<Node*> nodes;
 	Graph(FWApplication* application);
+	double DistanceToEnd(double x1, double y1, double x2, double y2);
 	virtual ~Graph();
 	std::vector<Node*> getNodes();
 };

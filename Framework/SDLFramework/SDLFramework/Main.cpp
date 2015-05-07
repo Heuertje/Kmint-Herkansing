@@ -30,7 +30,7 @@ int main(int args[])
 	
 	firstGraph = new Graph(application);
 	graphNodes = firstGraph->getNodes();
-
+	bool caught = false;
 	Cow* cow = new Cow(firstGraph->getNodes().at(2));
 	Mouse* mouse = new Mouse(firstGraph->getNodes().at(6));
 
@@ -57,17 +57,33 @@ int main(int args[])
 					application->Quit();
 					break;
 				case SDLK_SPACE:
-					cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-					mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-
+					if (caught){
+						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						caught = false;
+					}
+					else{
+						mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+					}
+					 
 					break;
 				}
 			}
 		}
-		
+
 		application->SetColor(Color(0, 0, 0, 255));
 		application->DrawText("Welcome to Sagar & Bas KMINT Application", 400 ,20 );
-	
+		if (cow->getCurrentNode()->GetNodeID() == mouse->getCurrentNode()->GetNodeID()){
+			caught = true;
+			application->SetColor(Color(255, 0, 0, 255));
+			application->DrawText("The cow has been caught", 400, 50);
+			std::vector<Node*> buurman =cow->getCurrentNode()->GetNeighbors();
+			std::cout << cow->getCurrentNode()->GetNodeID();
+			for (int i = 0; i < buurman.size(); i++){
+				std::cout << "Buren:" + buurman.at(i)->GetNodeID();
+			}
+
+			//application->DrawText("The following nodes are connected to thisone:" , 430,50);
+		}
 		for (int i = 0; i < graphNodes.size(); i++)
 		{
 			graphNodes[i]->Draw();

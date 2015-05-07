@@ -3,13 +3,13 @@
 
 Node::Node()
 {
-	
 }
 
-Node::Node( int x, int y)
+Node::Node( int x, int y, int nodeID)
 {
 	xPosition = x;
 	yPosition = y;
+	mNodeID = nodeID;
 	nodeWidth = 10;
 	nodeHeight = 10;
 	filled = true;
@@ -92,6 +92,10 @@ std::vector<Edge*> Node::getEdges()
 	return edges;
 }
 
+void Node::SetNodeID(){
+	mNodeID++;
+}
+
 int Node::GetNodeID(){
 	return mNodeID;
 }
@@ -100,7 +104,9 @@ std::vector<Edge*> Node::GetEdgesToNeighbors()
 {
 	return edgesToNeighbors;
 }
-
+std::vector<Node*> Node::GetNeighbors(){
+	return neighbors;
+}
 void Node::AddNeighbors(Node* neighbor)
 {
 	//create a new edge that will connect the 'this' node with the 'neighbor' node

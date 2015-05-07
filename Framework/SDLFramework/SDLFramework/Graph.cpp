@@ -7,19 +7,18 @@ Graph::Graph(FWApplication* application)
 { 
 
 	// initialize nodes
-	Node* node1 = new Node(100, 80);;
-	Node* node2 = new Node(220, 110);
-	Node* node3 = new Node(180, 230);
-
-	Node* node4 = new Node(300, 160);
-	Node* node5 = new Node(430, 530);
-	Node* node6 = new Node(520, 320);
-	Node* node7 = new Node(100, 320);
+	Node* node1 = new Node(100, 80, 0);
+	Node* node2 = new Node(220, 110, 1);
+	Node* node3 = new Node(180, 230, 2);
+	Node* node4 = new Node(300, 160, 3);
+	Node* node5 = new Node(430, 530, 4);
+	Node* node6 = new Node(520, 320, 5);
+	Node* node7 = new Node(100, 320, 6);
 
 	//initialize nodes
 	auto edge = new Edge(node1->getXPos(), node1->getYPos(), node2->getXPos(), node2->getYPos());
 	node1->addEdge(edge);
-
+	
 	edge = new Edge(node2->getXPos(), node2->getYPos(), node3->getXPos(), node3->getYPos());
 	node2->addEdge(edge);
 
@@ -81,7 +80,9 @@ Graph::~Graph()
 	}
 	nodes.clear();
 }
-
+double Graph::DistanceToEnd(double x1, double y1, double x2, double y2){
+	return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+}
 std::vector<Node*> Graph::getNodes()
 {
 	return nodes;

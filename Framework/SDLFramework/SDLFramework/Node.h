@@ -51,15 +51,16 @@ public:
 
 	void addNeighbor(Node*newNeighbor);
 	int GetNodeID();
-
+	void SetNodeID();
 	void AddNeighbors(Node* neighbor);
+	std::vector<Node*> GetNeighbors();
 	std::vector<Node*> neighbors;
 	std::vector<Edge*> edgesToNeighbors;
 	std::vector<Edge*> Node::GetEdgesToNeighbors();
 
 	//constructors, destructors
 	Node();
-	Node(int x, int y);
+	Node(int x, int y, int nodeID);
 	~Node();
 };
 
