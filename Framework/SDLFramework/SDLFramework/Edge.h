@@ -1,9 +1,13 @@
 #pragma once
 #include "IGameObject.h"
+#include "Node.h"
+
 class Edge : public IGameObject
 {
 private:
-
+	Node* mLeftConnectedNode;
+	Node* mRightConnectedNode;
+	int mWeight;
 
 public:
 	virtual void Draw();
@@ -14,14 +18,11 @@ public:
 
 	double endXPosition;
 	double endYPosition;
-	int mWeight;
-	int mLeftConnectedNodeID;
-	int mRightConnectedNodeID;
-	void SetLeftConnectedNodeID(int id);
-	void SetRightConnectedNodeID(int id);
 	int GetWeight();
-	int GetLeftConnectedNodeID();
-	int GetRightConnectedNodeID();
+	Node* GetLeftConnectedNode();
+	void SetLeftConnectedNode(Node* node);
+	Node* GetRightConnectedNode();
+	void SetRightConnectedNode(Node* neighbourNode);
 
 	//constructor, destructor
 	Edge(double startX, double startY, double endX, double endY);

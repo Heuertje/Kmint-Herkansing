@@ -15,25 +15,25 @@ int Edge::GetWeight()
 	return mWeight;
 }
 
-void Edge::SetLeftConnectedNodeID(int id)
+void Edge::SetLeftConnectedNode(Node* node)
 {
-	mLeftConnectedNodeID = id;
+	mLeftConnectedNode = node;
 }
 
-void Edge::SetRightConnectedNodeID(int id)
+void Edge::SetRightConnectedNode(Node* neighbourNode)
 {
-	mRightConnectedNodeID = id;
+	mRightConnectedNode = neighbourNode;
 
 }
 
-int Edge::GetLeftConnectedNodeID()
+Node* Edge::GetLeftConnectedNode()
 {
-	return mLeftConnectedNodeID;
+	return mLeftConnectedNode;
 }
 
-int Edge::GetRightConnectedNodeID()
+Node* Edge::GetRightConnectedNode()
 {
-	return mRightConnectedNodeID;
+	return mRightConnectedNode;
 }
 
 

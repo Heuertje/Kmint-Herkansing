@@ -3,6 +3,7 @@
 #include "Edge.h"
 #include "IGameObject.h"
 #include "FWApplication.h"
+
 class Node : public IGameObject
 {
 private:
