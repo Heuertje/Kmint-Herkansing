@@ -69,7 +69,7 @@ int main(int args[])
 						cout << endl << endl;
 					}
 					else{
-						mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						mouse->MoveMouse(firstGraph, cow);
 					}
 					 
 					break;

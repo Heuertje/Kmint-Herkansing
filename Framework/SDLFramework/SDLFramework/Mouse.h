@@ -3,7 +3,8 @@
 #include "IGameObject.h"
 #include "FWApplication.h"
 #include "Node.h"
-
+#include "Graph.h"
+#include "Cow.h"
 class Mouse : public IGameObject
 {
 private:
@@ -17,7 +18,7 @@ public:
 	virtual void Draw() override;
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;
-
+	void MoveMouse(Graph* firstGraph, Cow* cow);
 	Mouse();
 	Mouse(Node* newNode);
 	virtual ~Mouse();

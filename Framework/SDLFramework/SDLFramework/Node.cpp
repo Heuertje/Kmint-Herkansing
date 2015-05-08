@@ -1,5 +1,4 @@
 #include "Node.h"
-#include "Edge.h"
 #include <iostream>
 Node::Node()
 {
@@ -28,6 +27,7 @@ Node::~Node()
 	for (Edge* var : edges)
 	{
 ///!!!!!!!!!!////!!!!		delete var;
+
 	}
 	edges.clear();
 }
@@ -118,8 +118,8 @@ void Node::AddNeighbors(Node* neighbor)
 		);
 	this->addEdge(edge);
 	neighbor->addEdge(edge);
-	edge->SetLeftConnectedNodeID(this->GetNodeID());
-	edge->SetRightConnectedNodeID(neighbor->GetNodeID());
+	edge->SetLeftConnectedNode(this);
+	edge->SetRightConnectedNode(neighbor);
 
 	//add the new edge to 'this' nodes' neiboringEdge list
 	edgesToNeighbors.push_back(edge);
