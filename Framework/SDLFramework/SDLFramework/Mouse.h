@@ -9,7 +9,6 @@ class Mouse : public IGameObject
 {
 private:
 	Node* currentNode;
-
 public:
 	void setCurrentNode(Node* newCurrentCode);
 	Node* getCurrentNode();
@@ -18,11 +17,12 @@ public:
 	virtual void Draw() override;
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;
-	void MoveMouse(Graph* firstGraph, Cow* cow);
+	void MoveMouse(vector<Node*>* route);
 	void MoveLeft();
 	void MoveRight();
 	void PrintNodeNeighbours();
-	
+	void MouseRoute();
+
 
 	void MoveMiddle();
 	Mouse();

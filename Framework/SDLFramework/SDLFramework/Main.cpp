@@ -34,11 +34,13 @@ int main(int args[])
 	bool caught = false;
 	Cow* cow = new Cow(firstGraph->getNodes().at(2));
 	Mouse* mouse = new Mouse(firstGraph->getNodes().at(0));
+	vector<Node*>* route;
+	//route = nullptr;
+	route = firstGraph->ASter(mouse->getCurrentNode(), cow->getCurrentNode());
 
 	std::random_device rd;     // only used once to initialise (seed) engine
 	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
 	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
-	//while (true){}
 	while (application->IsRunning())
 	{
 		application->StartTick();
@@ -60,15 +62,17 @@ int main(int args[])
 					break;
 				case SDLK_SPACE:
 					if (caught){
-						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-						caught = false;
-					/*	for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
-							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID() + 1 << endl;
+						int randomgetal;
+						randomgetal = uni(rng);
+						while (randomgetal == cow->getCurrentNode()->GetNodeID()){
+							randomgetal = uni(rng);
 						}
-						cout << endl << endl;*/
+						cow->setCurrentNode(firstGraph->getNodes().at(randomgetal));
+						caught = false;
+						route = firstGraph->ASter(mouse->getCurrentNode(), cow->getCurrentNode());
 					}
 					else{
-						mouse->MoveMouse(firstGraph, cow);
+						mouse->MoveMouse(route);
 					}
 					 
 					break;

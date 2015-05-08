@@ -25,27 +25,10 @@ void Mouse::Draw()
 {
 	mApplication->DrawTexture(mTexture, currentNode->getXPos(), currentNode->getYPos(), mWidth, mHeight);
 }
-void Mouse::MoveMouse(Graph* firstGraph, Cow* cow){
-	std::random_device rd;     // only used once to initialise (seed) engine
-	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
-	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
-
-	vector<Node*>* nodes;
-	nodes = firstGraph->ASter(this->getCurrentNode(), cow->getCurrentNode());
-	Node* nextnode;
-	nextnode = nullptr;
-
-	cout << "fuckkk" << endl;
-	for (int i = 0; i < nodes->size(); i++){
-		if (nodes->at(i) != currentNode){
-			nextnode = nodes->at(i);
-			cout << nodes->at(i)->GetNodeID() << endl;
-		}
-		
-	}
-	cout << "Endfuckk: " << endl << endl;
-
-	setCurrentNode(nextnode);
+void Mouse::MoveMouse(vector<Node*>* route){
+	
+	setCurrentNode(route->at(0));
+	route->erase(route->begin(), route->begin() + 1);
 }
 
 void Mouse::MoveLeft()

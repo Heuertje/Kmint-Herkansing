@@ -118,9 +118,13 @@ vector<Node*>* Graph::ASter(Node* start, Node* goal){
 		}
 
 		current = kortstenode;
-		closedlist->push_back(current);
+			closedlist->push_back(current);
 
-		openlist = map<Node*, double>();
+			openlist = map<Node*, double>();
+	
+	}
+	while (start == closedlist->at(0)){
+		closedlist->erase(closedlist->begin(), closedlist->begin() + 1);
 	}
 
 //	cout << "Closedlist lengte:    " << closedlist->size() << endl;
