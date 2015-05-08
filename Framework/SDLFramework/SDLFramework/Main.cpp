@@ -59,17 +59,17 @@ int main(int args[])
 					application->Quit();
 					break;
 				case SDLK_SPACE:
-					//if (caught){
-					//	cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-					//	caught = false;
-					//	for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
-					//		cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID() + 1 << endl;
-					//	}
-					//	cout << endl << endl;
-					//}
-					//else{
+					if (caught){
+						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+						caught = false;
+					/*	for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
+							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID() + 1 << endl;
+						}
+						cout << endl << endl;*/
+					}
+					else{
 						mouse->MoveMouse(firstGraph, cow);
-					//}
+					}
 					 
 					break;
 				case SDLK_RIGHT:

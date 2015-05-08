@@ -95,12 +95,12 @@ vector<Node*>* Graph::ASter(Node* start, Node* goal){
 
 	while (current != goal){
 		for (Edge* e : current->GetEdgesToNeighbors()){
-			if (find(closedlist->begin(), closedlist->end(), e->GetRightConnectedNode()) == closedlist->end()){
+			if (find(closedlist->begin(), closedlist->end(), e->getOtherNode(current)) == closedlist->end()){
 				int g = weighttillnow + e->GetWeight();
-				int h = DistanceToNode(goal, e->GetRightConnectedNode());
+				int h = DistanceToNode(goal, e->getOtherNode(current));
 				int f = g + h;
 
-				openlist[e->GetRightConnectedNode()] = f;
+				openlist[e->getOtherNode(current)] = f;
 			}
 		}
 
@@ -111,7 +111,7 @@ vector<Node*>* Graph::ASter(Node* start, Node* goal){
 			}
 		}
 		for (size_t i = 0; i < current->GetEdgesToNeighbors().size(); i++){
-			if (current->GetEdgesToNeighbors().at(i)->GetRightConnectedNode() == kortstenode){
+			if (current->GetEdgesToNeighbors().at(i)->getOtherNode(goal) == kortstenode){
 				weighttillnow += current->GetEdgesToNeighbors().at(i)->GetWeight();
 				break;
 			}

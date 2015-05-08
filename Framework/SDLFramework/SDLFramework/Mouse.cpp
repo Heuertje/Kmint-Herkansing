@@ -29,12 +29,23 @@ void Mouse::MoveMouse(Graph* firstGraph, Cow* cow){
 	std::random_device rd;     // only used once to initialise (seed) engine
 	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
 	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
-	//uni(rng)
 
-	currentNode = getCurrentNode()->GetEdgesToNeighbors().at(0)->GetLeftConnectedNode();
-	//firstGraph->ASter(this->getCurrentNode(), cow->getCurrentNode());
+	vector<Node*>* nodes;
+	nodes = firstGraph->ASter(this->getCurrentNode(), cow->getCurrentNode());
+	Node* nextnode;
+	nextnode = nullptr;
 
-	//setCurrentNode(firstGraph->ASter(this->getCurrentNode(), cow->getCurrentNode())->at(0));
+	cout << "fuckkk" << endl;
+	for (int i = 0; i < nodes->size(); i++){
+		if (nodes->at(i) != currentNode){
+			nextnode = nodes->at(i);
+			cout << nodes->at(i)->GetNodeID() << endl;
+		}
+		
+	}
+	cout << "Endfuckk: " << endl << endl;
+
+	setCurrentNode(nextnode);
 }
 
 void Mouse::MoveLeft()
