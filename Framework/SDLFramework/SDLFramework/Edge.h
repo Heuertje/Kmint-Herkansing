@@ -23,6 +23,7 @@ public:
 	void SetLeftConnectedNode(Node* node);
 	Node* GetRightConnectedNode();
 	void SetRightConnectedNode(Node* neighbourNode);
+	Node* getOtherNode(Node* node);
 
 	//constructor, destructor
 	Edge(double startX, double startY, double endX, double endY);

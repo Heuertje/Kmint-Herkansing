@@ -5,6 +5,7 @@
 #include "IGameObject.h"
 #include "FWApplication.h"
 #include <math.h>
+using namespace std;
 class Graph : public IGameObject
 {
 private:
@@ -15,10 +16,12 @@ public:
 	virtual void Draw();
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;
-	std::vector<Node*> nodes;
+	vector<Node*> nodes;
 	Graph(FWApplication* application);
-	double DistanceToEnd(double x1, double y1, double x2, double y2);
+	double DistanceToNode(Node* goal, Node* child);
 	virtual ~Graph();
-	std::vector<Node*> getNodes();
+	//double CalcH(goal, );
+	vector<Node*>* ASter(Node* start, Node* goal);
+	vector<Node*> getNodes();
 };
 

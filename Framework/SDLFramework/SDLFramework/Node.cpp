@@ -26,7 +26,8 @@ Node::~Node()
 {
 	for (Edge* var : edges)
 	{
-		//delete var;
+///!!!!!!!!!!////!!!!		delete var;
+
 	}
 	edges.clear();
 }
@@ -108,7 +109,6 @@ std::vector<Node*> Node::GetNeighbors(){
 }
 void Node::AddNeighbors(Node* neighbor)
 {
-	std::cout << GetBoundingBox().x;
 	//create a new edge that will connect the 'this' node with the 'neighbor' node
 	auto edge = new Edge(
 		this->xPosition,
@@ -118,8 +118,16 @@ void Node::AddNeighbors(Node* neighbor)
 		);
 	this->addEdge(edge);
 	neighbor->addEdge(edge);
-	edge->SetLeftConnectedNode(this);
-	edge->SetRightConnectedNode(neighbor);
+	if (mNodeID == neighbor->GetNodeID())
+	{
+		edge->SetLeftConnectedNode(neighbor);
+		edge->SetRightConnectedNode(this);
+	}
+	else 
+	{
+		edge->SetLeftConnectedNode(this);
+		edge->SetRightConnectedNode(neighbor);
+	}
 
 	//add the new edge to 'this' nodes' neiboringEdge list
 	edgesToNeighbors.push_back(edge);

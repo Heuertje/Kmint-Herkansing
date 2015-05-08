@@ -33,7 +33,7 @@ int main(int args[])
 	graphNodes = firstGraph->getNodes();
 	bool caught = false;
 	Cow* cow = new Cow(firstGraph->getNodes().at(2));
-	Mouse* mouse = new Mouse(firstGraph->getNodes().at(6));
+	Mouse* mouse = new Mouse(firstGraph->getNodes().at(0));
 
 	std::random_device rd;     // only used once to initialise (seed) engine
 	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
@@ -59,20 +59,30 @@ int main(int args[])
 					application->Quit();
 					break;
 				case SDLK_SPACE:
-					if (caught){
-						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-						caught = false;
-
-						for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
-							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID()+1 << endl;
-
-						}
-						cout << endl << endl;
-					}
-					else{
-						mouse->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
-					}
+					//if (caught){
+					//	cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
+					//	caught = false;
+					//	for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
+					//		cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID() + 1 << endl;
+					//	}
+					//	cout << endl << endl;
+					//}
+					//else{
+						mouse->MoveMouse(firstGraph, cow);
+					//}
 					 
+					break;
+				case SDLK_RIGHT:
+					mouse->MoveRight();
+					break;
+				case SDLK_LEFT:
+					mouse->MoveLeft();
+					break;
+				case SDLK_UP:
+					mouse->MoveMiddle();
+					break;
+				case SDLK_p:
+					mouse->PrintNodeNeighbours();
 					break;
 				}
 			}

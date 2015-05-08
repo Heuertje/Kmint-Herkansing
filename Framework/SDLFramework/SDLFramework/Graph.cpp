@@ -1,7 +1,8 @@
 #include "Graph.h"
 #include "Node.h"
 #include "Edge.h"
-#
+#include <map>
+using namespace std;
 
 Graph::Graph(FWApplication* application)
 { 
@@ -81,6 +82,52 @@ void Graph::Draw(){}
 void Graph::Update(float deltaTime){}
 void Graph::OnCollision(IGameObject * collidedObject){}
 
+vector<Node*>* Graph::ASter(Node* start, Node* goal){
+	std::map<Node*, double> openlist;
+	std::vector<Node*>* closedlist = new std::vector<Node*>();
+
+	openlist[start] = 0.0;
+	Node* current = start;
+
+	closedlist->push_back(current);
+
+	double weighttillnow = 0;
+
+	while (current != goal){
+		for (Edge* e : current->GetEdgesToNeighbors()){
+			if (find(closedlist->begin(), closedlist->end(), e->GetRightConnectedNode()) == closedlist->end()){
+				int g = weighttillnow + e->GetWeight();
+				int h = DistanceToNode(goal, e->GetRightConnectedNode());
+				int f = g + h;
+
+				openlist[e->GetRightConnectedNode()] = f;
+			}
+		}
+
+		Node* kortstenode = nullptr;
+		for (pair<Node*, double> mapPair : openlist){
+			if (kortstenode == nullptr || mapPair.second < openlist[kortstenode]){
+				kortstenode = mapPair.first;
+			}
+		}
+		for (size_t i = 0; i < current->GetEdgesToNeighbors().size(); i++){
+			if (current->GetEdgesToNeighbors().at(i)->GetRightConnectedNode() == kortstenode){
+				weighttillnow += current->GetEdgesToNeighbors().at(i)->GetWeight();
+				break;
+			}
+		}
+
+		current = kortstenode;
+		closedlist->push_back(current);
+
+		openlist = map<Node*, double>();
+	}
+
+//	cout << "Closedlist lengte:    " << closedlist->size() << endl;
+	return closedlist;
+}
+
+
 Graph::~Graph()
 {
 	for (Node* var : nodes)
@@ -90,8 +137,8 @@ Graph::~Graph()
 	nodes.clear();
 }
 
-double Graph::DistanceToEnd(double x1, double y1, double x2, double y2){
-	return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+double Graph::DistanceToNode(Node* goal, Node* child){
+	return sqrt(pow(goal->getXPos() - child->getXPos(), 2) + pow(goal->getYPos() - child->getYPos(), 2));
 }
 
 std::vector<Node*> Graph::getNodes()

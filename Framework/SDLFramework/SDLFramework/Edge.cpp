@@ -37,6 +37,21 @@ Node* Edge::GetRightConnectedNode()
 	return mRightConnectedNode;
 }
 
+Node* Edge::getOtherNode(Node* node)
+{
+	if (mLeftConnectedNode == node)
+	{
+		return mRightConnectedNode;
+	}
+	else if (mRightConnectedNode == node)
+	{
+		return mLeftConnectedNode;
+	}
+	else 
+	{
+		return nullptr;
+	}
+}
 
 void Edge::Draw()
 {
