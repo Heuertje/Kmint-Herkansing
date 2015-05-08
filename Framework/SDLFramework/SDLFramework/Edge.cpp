@@ -41,7 +41,7 @@ Node* Edge::GetRightConnectedNode()
 void Edge::Draw()
 {
 	
-	FWApplication::GetInstance()->DrawLine(startXPosition, startYPosition, endXPosition, endYPosition);
+	FWApplication::GetInstance()->DrawLine((int)startXPosition, (int)startYPosition, (int)endXPosition, (int)endYPosition);
 }
 
 void Edge::Update(float deltaTime)

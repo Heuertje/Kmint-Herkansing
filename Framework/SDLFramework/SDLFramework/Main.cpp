@@ -63,7 +63,7 @@ int main(int args[])
 						cow->setCurrentNode(firstGraph->getNodes().at(uni(rng)));
 						caught = false;
 
-						for (int i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
+						for (size_t i = 0; i < cow->getCurrentNode()->GetNeighbors().size(); i++){
 							cout << cow->getCurrentNode()->GetNeighbors().at(i)->GetNodeID()+1 << endl;
 
 						}
@@ -89,12 +89,12 @@ int main(int args[])
 
 			//application->DrawText("The following nodes are connected to thisone:" , 430,50);
 		}
-		for (int i = 0; i < graphNodes.size(); i++)
+		for (size_t i = 0; i < graphNodes.size(); i++)
 		{
 			graphNodes[i]->Draw();
 			if (graphNodes[i]->GetEdgesToNeighbors().size() != 0)
 			{
-				for (int j = 0; j < graphNodes[i]->GetEdgesToNeighbors().size(); j++)
+				for (size_t j = 0; j < graphNodes[i]->GetEdgesToNeighbors().size(); j++)
 				{
 					graphNodes[i]->GetEdgesToNeighbors().at(j)->Draw();
 				}

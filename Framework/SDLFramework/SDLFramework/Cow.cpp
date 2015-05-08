@@ -20,7 +20,7 @@ Node* Cow::getCurrentNode()
 
 void Cow::Draw()
 {
-	mApplication->DrawTexture(mTexture, currentNode->getXPos(), currentNode->getYPos(), mWidth, mHeight);
+	mApplication->DrawTexture(mTexture, (int)currentNode->getXPos(), (int)currentNode->getYPos(), mWidth, mHeight);
 }
 
 void Cow::Update(float deltaTime)
