@@ -1,4 +1,5 @@
 #include "Edge.h"
+#include "Node.h"
 
 Edge::Edge(double startX, double startY, double endX, double endY)
 {

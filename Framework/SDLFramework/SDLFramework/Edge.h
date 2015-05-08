@@ -1,6 +1,6 @@
 #pragma once
 #include "IGameObject.h"
-#include "Node.h"
+class Node;
 
 class Edge : public IGameObject
 {
