@@ -1,10 +1,6 @@
 #include "Edge.h"
+#include "Node.h"
 
-
-Edge::Edge()
-{
-	FWApplication* application = FWApplication::GetInstance();
-}
 Edge::Edge(double startX, double startY, double endX, double endY)
 {
 	 startXPosition = startX;
@@ -15,41 +11,65 @@ Edge::Edge(double startX, double startY, double endX, double endY)
 	 mWeight = 1000;
 }
 
-
-
 int Edge::GetWeight()
 {
 	return mWeight;
 }
 
-void Edge::SetLeftConnectedNodeID(int id)
+void Edge::SetLeftConnectedNode(Node* node)
 {
-	mLeftConnectedNodeID = id;
+	mLeftConnectedNode = node;
 }
 
-void Edge::SetRightConnectedNodeID(int id)
+void Edge::SetRightConnectedNode(Node* neighbourNode)
 {
-	mRightConnectedNodeID = id;
+	mRightConnectedNode = neighbourNode;
 
 }
 
-int Edge::GetLeftConnectedNodeID()
+Node* Edge::GetLeftConnectedNode()
 {
-	return mLeftConnectedNodeID;
+	return mLeftConnectedNode;
 }
 
-int Edge::GetRightConnectedNodeID()
+Node* Edge::GetRightConnectedNode()
 {
-	return mRightConnectedNodeID;
+	return mRightConnectedNode;
 }
 
+Node* Edge::getOtherNode(Node* node)
+{
+	if (mLeftConnectedNode == node)
+	{
+		return mRightConnectedNode;
+	}
+	else if (mRightConnectedNode == node)
+	{
+		return mLeftConnectedNode;
+	}
+	else 
+	{
+		return nullptr;
+	}
+}
 
+void Edge::Draw()
+{
+	
+	FWApplication::GetInstance()->DrawLine((int)startXPosition, (int)startYPosition, (int)endXPosition, (int)endYPosition);
+}
+
+void Edge::Update(float deltaTime)
+{
+	
+}
+
+void Edge::OnCollision(IGameObject * collidedObject)
+{
+	
+}
 
 Edge::~Edge()
 {
+
 }
-
-
-void Edge::Draw(){}
-void Edge::Update(float deltaTime){}
-void Edge::OnCollision(IGameObject * collidedObject){}

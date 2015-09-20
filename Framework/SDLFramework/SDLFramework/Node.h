@@ -3,11 +3,17 @@
 #include "Edge.h"
 #include "IGameObject.h"
 #include "FWApplication.h"
+
 class Node : public IGameObject
 {
 private:
-	
+	double xPosition;
+	double yPosition;
+	double nodeHeight;
+	double nodeWidth;
+	bool filled;
 
+	std::vector<Edge*> edges;
 
 	
 
@@ -16,15 +22,6 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;
 
-
-	double xPosition;
-	double yPosition;
-	double nodeHeight;
-	double nodeWidth;
-	bool isFilled;
-	
-	std::vector<Node> neighbours;
-	std::vector<Edge> edges;
 	bool mIsStartingNode;
 	bool mIsTargetNode;
 	int amountOfEdgesChecked;
@@ -37,24 +34,34 @@ public:
 	int mFValue;
 	int mNodeID;
 	Node* mParentNode;
-	Node();
-	Node(int x, int y);
-	~Node();
+
 	void setX(double x);
 	void setY(double y);
+	double getXPos();
+	double getYPos();
 
 	void setWidth(double width);
-
 	void setHeight(double height);
+	double getWidth();
+	double getHeight();
 
-	void addNeighbour(Node*newNeighbour);
-	int GetNodeID();
+	bool isFilled();
 
+	std::vector<Edge*> getEdges();
 	void addEdge(Edge*newEdge);
-	std::vector<Edge> getEdges();
+
+	void addNeighbor(Node*newNeighbor);
+	int GetNodeID();
+	void SetNodeID();
 	void AddNeighbors(Node* neighbor);
+	std::vector<Node*> GetNeighbors();
 	std::vector<Node*> neighbors;
 	std::vector<Edge*> edgesToNeighbors;
 	std::vector<Edge*> Node::GetEdgesToNeighbors();
+
+	//constructors, destructors
+	Node();
+	Node(int x, int y, int nodeID);
+	~Node();
 };
 

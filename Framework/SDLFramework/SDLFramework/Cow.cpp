@@ -1,7 +1,8 @@
 #include "Cow.h"
 
-Cow::Cow()
+Cow::Cow(Node* newNode)
 {
+	currentNode = newNode;
 	mTexture = mApplication->LoadTexture("cow-1.png");
 	mWidth = 50;
 	mHeight = 50;
@@ -12,9 +13,14 @@ void Cow::setCurrentNode(Node* newCurrentNode)
 	currentNode = newCurrentNode;
 }
 
+Node* Cow::getCurrentNode()
+{
+	return currentNode;
+}
+
 void Cow::Draw()
 {
-	mApplication->DrawTexture(mTexture, currentNode->xPosition, currentNode->yPosition, mWidth, mHeight);
+	mApplication->DrawTexture(mTexture, (int)currentNode->getXPos(), (int)currentNode->getYPos(), mWidth, mHeight);
 }
 
 void Cow::Update(float deltaTime)

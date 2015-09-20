@@ -1,18 +1,17 @@
 #include "Node.h"
-#include "Edge.h"
-
+#include <iostream>
 Node::Node()
 {
-	
 }
 
-Node::Node( int x, int y)
+Node::Node( int x, int y, int nodeID)
 {
 	xPosition = x;
 	yPosition = y;
+	mNodeID = nodeID;
 	nodeWidth = 10;
 	nodeHeight = 10;
-	isFilled = true;
+	filled = true;
 
 	mIsStartingNode = false;
 	mIsTargetNode = false;
@@ -25,12 +24,22 @@ Node::Node( int x, int y)
 
 Node::~Node()
 {
+	for (Edge* var : edges)
+	{
+///!!!!!!!!!!////!!!!		delete var;
+
+	}
+	edges.clear();
 }
 
 void Node::setX(double x)
 {
 	xPosition = x;
-	
+}
+
+double Node::getXPos()
+{
+	return xPosition;
 }
 
 void Node::setY(double y)
@@ -38,10 +47,19 @@ void Node::setY(double y)
 	yPosition = y;
 }
 
+double Node::getYPos()
+{
+	return yPosition;
+}
+
 void Node::setWidth(double width)
 {
 	nodeWidth = width;
+}
 
+double Node::getWidth()
+{
+	return nodeWidth;
 }
 
 void Node::setHeight(double height)
@@ -49,20 +67,35 @@ void Node::setHeight(double height)
 	nodeHeight = height;
 }
 
-void Node::addNeighbour(Node*newNeighbour)
+double Node::getHeight()
 {
-	neighbours.push_back(*newNeighbour);
+	return nodeHeight;
+}
+
+bool Node::isFilled()
+{
+	return filled;
+}
+
+void Node::addNeighbor(Node*newNeighbor)
+{
+	neighbors.push_back(newNeighbor);
 }
 
 void Node::addEdge(Edge*newEdge)
 {
-	edges.push_back(*newEdge);
+	edges.push_back(newEdge);
 }
 
-std::vector<Edge> Node::getEdges()
+std::vector<Edge*> Node::getEdges()
 {
 	return edges;
 }
+
+void Node::SetNodeID(){
+	mNodeID++;
+}
+
 int Node::GetNodeID(){
 	return mNodeID;
 }
@@ -71,19 +104,30 @@ std::vector<Edge*> Node::GetEdgesToNeighbors()
 {
 	return edgesToNeighbors;
 }
-
+std::vector<Node*> Node::GetNeighbors(){
+	return neighbors;
+}
 void Node::AddNeighbors(Node* neighbor)
 {
 	//create a new edge that will connect the 'this' node with the 'neighbor' node
 	auto edge = new Edge(
-		this->GetBoundingBox().x,
-		this->GetBoundingBox().y,
-		neighbor->GetBoundingBox().x,
-		neighbor->GetBoundingBox().y
+		this->xPosition,
+		this->yPosition,
+		neighbor->getXPos(),
+		neighbor->getYPos()
 		);
-
-	edge->SetLeftConnectedNodeID(this->GetNodeID());
-	edge->SetRightConnectedNodeID(neighbor->GetNodeID());
+	this->addEdge(edge);
+	neighbor->addEdge(edge);
+	if (mNodeID == neighbor->GetNodeID())
+	{
+		edge->SetLeftConnectedNode(neighbor);
+		edge->SetRightConnectedNode(this);
+	}
+	else 
+	{
+		edge->SetLeftConnectedNode(this);
+		edge->SetRightConnectedNode(neighbor);
+	}
 
 	//add the new edge to 'this' nodes' neiboringEdge list
 	edgesToNeighbors.push_back(edge);
@@ -103,16 +147,14 @@ void Node::AddNeighbors(Node* neighbor)
 
 
 	mApplication->AddRenderable(edge);
-
-
 }
 
 void Node::Draw(){
+	FWApplication::GetInstance()->DrawRect(xPosition, yPosition, nodeWidth, nodeHeight, filled);
 	//#TestDraw
-	mApplication->SetColor(Color(100, 0, 200, 255));
-	mApplication->DrawLine(0,0, 500,500);
+	//mApplication->SetColor(Color(100, 0, 200, 255));
+	//mApplication->DrawLine(0,0, 500,500);
 	//#endTestDraw
-
 }
 void Node::Update(float deltaTime){}
 void Node::OnCollision(IGameObject * collidedObject){}

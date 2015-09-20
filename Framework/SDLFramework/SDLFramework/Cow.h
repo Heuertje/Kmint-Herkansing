@@ -13,6 +13,7 @@ private:
 
 public:
 	void setCurrentNode(Node* newCurrentNode);
+	Node* getCurrentNode();
 
 	//IgameObject methodes
 	virtual void Draw() override;
@@ -20,8 +21,7 @@ public:
 	virtual void OnCollision(IGameObject * collidedObject) override;
 
 
-	Cow();
-	void init();
+	Cow(Node* newNode);
 	virtual ~Cow();
 };
 
