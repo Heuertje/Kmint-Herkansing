@@ -1,33 +1,25 @@
 #include "Cow.h"
 
-Cow::Cow(Node* newNode)
+Cow::Cow(Node* newNode) : Animal(newNode)
 {
-	currentNode = newNode;
 	mTexture = mApplication->LoadTexture("cow-1.png");
-	mWidth = 50;
-	mHeight = 50;
 }
 
-void Cow::setCurrentNode(Node* newCurrentNode)
-{
-	currentNode = newCurrentNode;
-}
 
-Node* Cow::getCurrentNode()
-{
-	return currentNode;
-}
+void Cow::MoveCow(vector<Node*>* route){
 
-void Cow::Draw()
-{
-	mApplication->DrawTexture(mTexture, (int)currentNode->getXPos(), (int)currentNode->getYPos(), mWidth, mHeight);
+	setCurrentNode(route->at(0));
+	route->erase(route->begin(), route->begin() + 1);
 }
 
 void Cow::Update(float deltaTime)
 {
-
+	//m_pcurrentstate->execute.....
 }
-
+//void ChangeState(const State*pNewState){
+//	delete m_pCurrentState;
+//	m_pCurrentState = pNewState;
+//}
 void Cow::OnCollision(IGameObject * collidedObject)
 {
 

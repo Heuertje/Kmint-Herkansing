@@ -40,7 +40,7 @@ int main(int args[])
 
 	std::random_device rd;     // only used once to initialise (seed) engine
 	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
-	std::uniform_int_distribution<int> uni(0, 6); // guaranteed unbiased
+	std::uniform_int_distribution<int> uni(0, graphNodes.size()-1); // guaranteed unbiased
 	while (application->IsRunning())
 	{
 		application->StartTick();
@@ -62,6 +62,10 @@ int main(int args[])
 					break;
 				case SDLK_SPACE:
 					if (caught){
+				//call cow movement
+					//call movement
+						//after movement, pill: switch state
+
 						int randomgetal;
 						randomgetal = uni(rng);
 						while (randomgetal == cow->getCurrentNode()->GetNodeID()){
@@ -87,6 +91,9 @@ int main(int args[])
 					break;
 				case SDLK_p:
 					mouse->PrintNodeNeighbours();
+					break;
+				case SDLK_a:
+					route = firstGraph->ASter(mouse->getCurrentNode(), cow->getCurrentNode());
 					break;
 				}
 			}

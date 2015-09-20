@@ -102,6 +102,7 @@ xcopy "$(SolutionDir)Resources" "$(TargetDir)Resources" /e /y /i /r</Command>
   <ItemGroup>
     <ClCompile Include="Cow.cpp" />
     <ClCompile Include="Edge.cpp" />
+    <ClCompile Include="flee.cpp" />
     <ClCompile Include="FWApplication.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -115,6 +116,7 @@ xcopy "$(SolutionDir)Resources" "$(TargetDir)Resources" /e /y /i /r</Command>
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cow.h" />
     <ClInclude Include="Edge.h" />
+    <ClInclude Include="flee.h" />
     <ClInclude Include="FWApplication.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="IGameObject.h" />

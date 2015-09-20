@@ -6,7 +6,7 @@ Mouse::Mouse(){};
 Mouse::Mouse(Node* newNode)
 {
 	currentNode = newNode;
-	mTexture = mApplication->LoadTexture("pill.png");
+	mTexture = mApplication->LoadTexture("mouse.png");
 	mWidth = 50;
 	mHeight = 50;
 }

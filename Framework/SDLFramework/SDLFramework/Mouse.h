@@ -21,7 +21,7 @@ public:
 	void MoveLeft();
 	void MoveRight();
 	void PrintNodeNeighbours();
-	void MouseRoute();
+//	void MouseRoute();
 
 
 	void MoveMiddle();

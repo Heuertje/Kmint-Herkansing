@@ -15,7 +15,16 @@ Graph::Graph(FWApplication* application)
 	Node* node5 = new Node(430, 530, 4);
 	Node* node6 = new Node(520, 320, 5);
 	Node* node7 = new Node(100, 320, 6);
+	Node* node8 = new Node(30, 30, 7);
+	Node* node9 = new Node(30, 100, 8);
+	Node* node10 = new Node(110, 30, 9);
 
+	node10->AddNeighbors(node2);
+	node8->AddNeighbors(node10);
+	node1->AddNeighbors(node10);
+	node1->AddNeighbors(node9);
+	node8->AddNeighbors(node9);
+	node1->AddNeighbors(node8);
 	node1->AddNeighbors(node2);
 	node2->AddNeighbors(node3);
 	node3->AddNeighbors(node4);
@@ -25,48 +34,7 @@ Graph::Graph(FWApplication* application)
 	node2->AddNeighbors(node4);
 	node1->AddNeighbors(node7);
 	node7->AddNeighbors(node5);
-	////initialize nodes
-	//auto edge = new Edge(node1->getXPos(), node1->getYPos(), node2->getXPos(), node2->getYPos());
-	//node1->addEdge(edge);
-	//
-	//edge = new Edge(node2->getXPos(), node2->getYPos(), node3->getXPos(), node3->getYPos());
-	//node2->addEdge(edge);
 
-	//edge = new Edge(node3->getXPos(), node3->getYPos(), node4->getXPos(), node4->getYPos());
-	//node3->addEdge(edge);
-
-	//edge = new Edge(node3->getXPos(), node3->getYPos(), node5->getXPos(), node5->getYPos());
-	//node3->addEdge(edge);
-
-	//edge = new Edge(node4->getXPos(), node4->getYPos(), node5->getXPos(), node5->getYPos());
-	//node4->addEdge(edge);
-
-	//edge = new Edge(node4->getXPos(), node4->getYPos(), node6->getXPos(), node6->getYPos());
-	//node4->addEdge(edge);
-
-	//edge = new Edge(node5->getXPos(), node5->getYPos(), node6->getXPos(), node6->getYPos());
-	//node5->addEdge(edge);
-
-	//edge = new Edge(node2->getXPos(), node2->getYPos(), node4->getXPos(), node4->getYPos());
-	//node2->addEdge(edge);
-	//
-	//edge = new Edge(node1->getXPos(), node1->getYPos(), node7->getXPos(), node7->getYPos());
-	//node7->addEdge(edge);
-
-	//edge = new Edge(node7->getXPos(), node7->getYPos(), node5->getXPos(), node5->getYPos());
-	//node7->addEdge(edge);
-
-	//add created edges to their respective nodes
-
-	/*
-	for (int dummyEdgesCounter = 0; dummyEdgesCounter < 4; dummyEdgesCounter++)
-	{
-		Edge*dummyEdge = new Edge(node3->xPosition, node3->yPosition, 250 +( 20 *dummyEdgesCounter),200 +( 120 * dummyEdgesCounter));
-		node3->addEdge(dummyEdge);
-
-		delete dummyEdge;
-	}
-	*/
 
 	//add all nodes into a vector for future iterations
 	nodes.push_back(node1);
@@ -76,6 +44,10 @@ Graph::Graph(FWApplication* application)
 	nodes.push_back(node5);
 	nodes.push_back(node6);
 	nodes.push_back(node7);
+	nodes.push_back(node8);
+	nodes.push_back(node9);
+	nodes.push_back(node10);
+
 }
 
 void Graph::Draw(){}

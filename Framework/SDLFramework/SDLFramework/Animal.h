@@ -6,23 +6,19 @@
 #include "SDL_timer.h"
 #include <time.h>
 #include "Graph.h"
-#include "Animal.h"
-class Cow : public Animal
+class Animal : public IGameObject
 {
-private:
 	Node* currentNode;
-
 public:
-	Cow(Node* newNode);
+	Animal(Node* newNode);
 	void setCurrentNode(Node* newCurrentNode);
 	Node* getCurrentNode();
 
-	//IgameObject methodes
+	//IgameObject methods
 	virtual void Draw() override;
 	virtual void Update(float deltaTime) override;
 	virtual void OnCollision(IGameObject * collidedObject) override;
 	void MoveCow(vector<Node*>* route);
-
-	virtual ~Cow();
+	virtual ~Animal();
 };
 
